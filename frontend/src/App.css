@@ -1,45 +1,92 @@
-body{
+/* General styles for the app */
+body {
   font-family: 'Roboto', sans-serif;
-  
-  color: #ffffff;
   margin: 0;
   padding: 0;
-}
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: #121212;
+  color: #ffffff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* App bar at the top */
+.app-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: #121212;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Search form container */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Controls the maximum width of the search bar */
+  position: relative;
+}
+
+/* The search bar container with icon */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #333;
+  border-radius: 25px;
+  padding: 10px 15px;
+}
+
+/* Style for the search input */
+.search-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
   color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  outline: none;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+/* The search icon inside the input */
+.search-icon {
+  color: #aeaeae; /* Spotify green */
+  font-size: 1.9rem;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Placeholder text color */
+.search-input::placeholder {
+  color: #bbb;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .search-form {
+    max-width: 100%; /* Allow the search bar to fill the width on smaller screens */
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search-bar-container {
+    padding: 8px 12px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+  }
+
+  .search-icon {
+    font-size: 1rem;
   }
 }

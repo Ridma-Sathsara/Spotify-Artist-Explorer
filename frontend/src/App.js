@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa"; // Importing the search icon from react-icons
 import ArtistInfo from "./components/ArtistInfo";
 import ArtistTopTracks from "./components/ArtistTopTracks";
 import ArtistAlbums from "./components/ArtistAlbums";
+import './App.css';
 
 function App() {
   const [artistId, setArtistId] = useState("");
@@ -13,7 +15,9 @@ function App() {
     setError("");
 
     try {
-      const response = await fetch(`http://localhost:5000/api/search/artist?q=${searchTerm}`);
+      const response = await fetch(
+        `http://localhost:5000/api/search/artist?q=${searchTerm}`
+      );
       const data = await response.json();
 
       if (data.length === 0) {
@@ -29,27 +33,30 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "2rem" }}>
-      <h1>Spotify Artist Info</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Enter Artist Name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          style={{ padding: "0.5rem", width: "250px" }}
-        />
-        <button type="submit" style={{ marginLeft: "1rem", padding: "0.5rem" }}>
-          Search
-        </button>
-      </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div>
+      <header className="app-bar">
+        {/* Search bar with icon */}
+        <form className="search-form" onSubmit={handleSearch}>
+          <div className="search-bar-container">
+            <FaSearch className="search-icon" />
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search for Artists"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+        </form>
+      </header>
+
+      {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
       {artistId && (
-        <>
+        <div style={{ padding: "2rem" }}>
           <ArtistInfo artistId={artistId} />
           <ArtistTopTracks artistId={artistId} />
           <ArtistAlbums artistId={artistId} />
-        </>
+        </div>
       )}
     </div>
   );

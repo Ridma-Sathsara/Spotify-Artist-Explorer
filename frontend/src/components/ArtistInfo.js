@@ -48,7 +48,7 @@ const ArtistInfo = ({ artistId }) => {
           backgroundImage: `url(${coverPhoto})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '450px',
+          height: '650px',
         }}
       >
         {/* Artist details with profile photo */}

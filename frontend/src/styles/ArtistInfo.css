@@ -3,7 +3,7 @@
   background-color: #121212;
   color: white;
   border-radius: 8px;
-  max-width: 900px;
+  max-width: 1500px;
   margin: 40px auto;
   position: relative;
 }
@@ -11,7 +11,7 @@
 /* Cover photo styles */
 .artist-cover-photo {
   width: 100%;
-  height: 850px;
+  height: 50vh;
   background-color: #333;
   border-radius: 8px 8px 0 0;
   position: relative;
@@ -34,13 +34,13 @@
 
 /* Profile image styles inside the overlay */
 .artist-image-overlay {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s ease-in-out;
-  border: 1px solid #1db954; 
+  border: 2px solid #1db954; 
 }
 
 .artist-image-overlay:hover {
@@ -78,7 +78,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .artist-cover-photo {
-    height: 1400px;
+    height: 70vh;
   }
 
   .artist-info-overlay {
